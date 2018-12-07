@@ -13,3 +13,10 @@ struct mineCellModel :HandyJSON {
     var text :String = ""
     var grey_text : String = ""
 }
+
+struct myConcernModel :HandyJSON {
+    var name : String?
+    var icon : String?
+    var description: String?
+    var type : String?
+}

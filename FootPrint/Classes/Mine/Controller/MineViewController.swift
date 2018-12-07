@@ -10,6 +10,7 @@ import UIKit
 class MineViewController: UITableViewController {
 
     var cellData = [[mineCellModel]]()
+    var concernData = [myConcernModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,19 @@ class MineViewController: UITableViewController {
         // Do any additional setup after loading the view.
         
         tableView.fp_registerCell(cell: mineCustomCell.self)
-        tableView.fp_registerCell(cell: myConcertCell.self)
+        tableView.fp_registerCell(cell: myConcernCell.self)
   
         NetworkTool.loadMineData{ cellData in
             self.cellData = cellData
+            
+            NetworkTool.loadMyConcernData{ concernData in
+                self.concernData = concernData
+                let indexSet = IndexSet(integer: 0)
+                self.tableView.reloadSections(indexSet, with: .automatic)
+            }
+            
             self.tableView.reloadData()
-        }
+        }   
     }
     
 }
@@ -41,6 +49,9 @@ extension MineViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == 0 && indexPath.row == 0){
+            return (concernData.count == 0 || concernData.count == 1) ? 40 : 114
+        }
         return 40
     }
     
@@ -59,7 +70,7 @@ extension MineViewController{
         if(indexPath.section == 0 && indexPath.row == 0)
         {
 //            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: myConcertCell.self)) as! myConcertCell
-            let cell = tableView.fp_dequeueReusableCell(cell: myConcertCell.self)
+            let cell = tableView.fp_dequeueReusableCell(cell: myConcernCell.self)
             cell.mineCellTitle.text = cellData[indexPath.section][indexPath.row].text
             cell.mineCellDesText.text = cellData[indexPath.section][indexPath.row].grey_text
             return cell

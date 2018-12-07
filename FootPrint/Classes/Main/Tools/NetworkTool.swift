@@ -13,6 +13,8 @@ import HandyJSON
 
 protocol NetworkToolProtocol {
     static func loadMineData(completion:@escaping (_ sections:[[mineCellModel]])->())
+    
+    static func loadMyConcernData(completion:@escaping (_ concerns:[myConcernModel])->())
 }
 
 extension NetworkToolProtocol{
@@ -53,6 +55,37 @@ extension NetworkToolProtocol{
         }
         //return sectionArray
     }
+    
+    static func loadMyConcernData(completion:@escaping (_ concerns:[myConcernModel])->()){
+        let url = BaseURL + "/concern/v2/follow/my_follow"
+        let params = ["device_id":device_id, "iid":iid]
+        //var sectionArray = [[mineCellModel]]()
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            guard response.result.isSuccess else{
+                return
+            }
+            if let result = response.result.value{
+                let json = JSON(result)
+                guard json["message"] == "success" else{
+                    return
+                }
+                print(json)
+                if let datas = json["data"].arrayObject{
+                    
+                    var concernArray = [myConcernModel]()
+                    for data in datas{
+                        let concernData = data as! NSDictionary
+                        let myConcern = myConcernModel.deserialize(from: concernData)
+                        concernArray.append(myConcern!)
+                    }
+                    completion(concernArray)
+                }
+            }
+            
+        }
+        //return sectionArray
+    }
+    
 }
 
 struct NetworkTool : NetworkToolProtocol {

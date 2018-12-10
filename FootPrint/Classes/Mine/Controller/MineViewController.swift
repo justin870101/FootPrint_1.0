@@ -66,18 +66,31 @@ extension MineViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+
         if(indexPath.section == 0 && indexPath.row == 0)
         {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: myConcertCell.self)) as! myConcertCell
-            let cell = tableView.fp_dequeueReusableCell(cell: myConcernCell.self)
-            cell.mineCellTitle.text = cellData[indexPath.section][indexPath.row].text
-            cell.mineCellDesText.text = cellData[indexPath.section][indexPath.row].grey_text
+
+            let cell = tableView.fp_dequeueReusableCell(cell: myConcernCell.self) as myConcernCell
+            cell.mineCellModel = cellData[indexPath.section][indexPath.row]
+            
+//            cell.mineCellTitle.text = cellData[indexPath.section][indexPath.row].text
+//            cell.mineCellDesText.text = cellData[indexPath.section][indexPath.row].grey_text
+            
+            
+            if(concernData.count == 0 || concernData.count == 1){
+                cell.concernPersonList.isHidden = true
+            }
+            if(concernData.count == 1){
+                cell.myConcernCollection = concernData[0]
+            }
+            else if(concernData.count > 1){
+                cell.myConcernCollections = concernData
+            }
             return cell
         }
+
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: mineCustomCell.self)) as! mineCustomCell
-        let cell = tableView.fp_dequeueReusableCell(cell: mineCustomCell.self)
+        let cell = tableView.fp_dequeueReusableCell(cell: mineCustomCell.self) as mineCustomCell
         cell.mineCellTitle.text = cellData[indexPath.section][indexPath.row].text
         cell.mineCellDesText.text = cellData[indexPath.section][indexPath.row].grey_text
     

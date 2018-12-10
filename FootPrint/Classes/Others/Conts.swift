@@ -12,5 +12,8 @@ let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 
 let BaseURL = "https://is.snssdk.com"
-let device_id : String = "8800803362"
-let iid = "14486549076"
+//let device_id : String = "8800803362"
+//let iid = "14486549076"
+
+let device_id: Int = 6096495334
+let iid: Int = 5034850950

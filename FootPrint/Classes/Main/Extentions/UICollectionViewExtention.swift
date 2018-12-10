@@ -20,7 +20,7 @@ extension UICollectionView{
         }
     }
 
-    func fp_dequeueReusableCell<T:UICollectionViewCell>(cell:T.Type, indexPath:IndexPath) ->T where T:RegisterCell{
+    func fp_dequeueReusableCell<T:UICollectionViewCell>(indexPath:IndexPath) ->T where T:RegisterCell{
         return dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as! T
     }
     

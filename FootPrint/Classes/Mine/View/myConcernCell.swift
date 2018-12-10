@@ -38,8 +38,8 @@ class myConcernCell: UITableViewCell,RegisterCell {
         super.awakeFromNib()
         // Initialization code
         concernPersonList.collectionViewLayout = myConcernFlowLayout()
-        //concernPersonList.delegate = self as! UICollectionViewDelegate
-        //concernPersonList.dataSource = self as! UICollectionViewDataSource
+        concernPersonList.delegate = self as UICollectionViewDelegate
+        concernPersonList.dataSource = self as UICollectionViewDataSource
         
         concernPersonList.fp_registerCell(cell: myConcernCollectionCell.self)
     }
@@ -61,7 +61,7 @@ extension myConcernCell: UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return myConcernCollections.count
     }
 
 }

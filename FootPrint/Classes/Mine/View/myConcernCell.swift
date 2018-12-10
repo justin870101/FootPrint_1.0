@@ -22,6 +22,8 @@ class myConcernCell: UITableViewCell,RegisterCell {
         concertPersonList.collectionViewLayout = myConcernFlowLayout()
         concertPersonList.delegate = self
         concertPersonList.dataSource = self
+        
+        concertPersonList.fp_registerCell(cell: myConcernCollectionCell.self)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,5 +41,7 @@ class myConcernCell: UITableViewCell,RegisterCell {
             scrollDirection = .horizontal
         }
     }
+    
+
     
 }

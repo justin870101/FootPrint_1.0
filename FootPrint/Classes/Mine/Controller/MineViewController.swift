@@ -12,6 +12,16 @@ class MineViewController: UITableViewController {
     var cellData = [[mineCellModel]]()
     var concernData = [myConcernModel]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //view.backgroundColor = UIColor.yellow
@@ -19,7 +29,7 @@ class MineViewController: UITableViewController {
         tableView.backgroundColor = UIColor.setBackgroundColor()
         tableView.separatorStyle = .none
         // Do any additional setup after loading the view.
-        
+        tableView.tableHeaderView = headerView
         tableView.fp_registerCell(cell: mineCustomCell.self)
         tableView.fp_registerCell(cell: myConcernCell.self)
   
@@ -34,6 +44,26 @@ class MineViewController: UITableViewController {
             
             self.tableView.reloadData()
         }   
+    }
+    
+    fileprivate lazy var headerView:noLoginView = noLoginView.headerView()
+    
+//   fileprivate lazy var headerView:noLoginView = {
+//        let headerView = noLoginView.headerView()
+//        return headerView
+//    }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSetY = scrollView.contentOffset.y
+        if offSetY < 0{
+            let totleOffSet = CGFloat(280) + abs(offSetY)
+            let f = totleOffSet / CGFloat(280)
+            headerView.backgroundImage.frame = CGRect(x: -screenWidth * (f-1), y: offSetY, width: screenWidth*f, height: totleOffSet)
+        }
     }
     
 }

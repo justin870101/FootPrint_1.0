@@ -34,30 +34,56 @@
                             <constraint firstAttribute="height" constant="40" id="9rB-7K-7YH"/>
                             <constraint firstAttribute="width" constant="40" id="OQU-tv-Jpy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MfJ-Na-I9h" customClass="all_v_avatar_18x18_">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all_v_avatar_18x18_" translatesAutoresizingMaskIntoConstraints="NO" id="MfJ-Na-I9h" customClass="all_v_avatar_18x18_">
                         <rect key="frame" x="30" y="29" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="kzL-hV-wxy"/>
                             <constraint firstAttribute="width" constant="15" id="uXG-2C-gYq"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8P-wS-W1q">
+                        <rect key="frame" x="30" y="9" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="RTv-XM-7Nk"/>
+                            <constraint firstAttribute="width" constant="10" id="nEJ-ih-yrM"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WnL-LW-b8t" secondAttribute="trailing" id="H7S-IF-eT7"/>
                 <constraint firstItem="MfJ-Na-I9h" firstAttribute="bottom" secondItem="wSR-Ki-7RN" secondAttribute="bottom" id="HSC-PO-Owl"/>
                 <constraint firstItem="wSR-Ki-7RN" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="IdO-IX-CsT"/>
+                <constraint firstItem="Y8P-wS-W1q" firstAttribute="centerY" secondItem="wSR-Ki-7RN" secondAttribute="centerY" constant="-10" id="bw4-BV-oq0"/>
                 <constraint firstItem="MfJ-Na-I9h" firstAttribute="trailing" secondItem="wSR-Ki-7RN" secondAttribute="trailing" id="ek2-RG-9gg"/>
                 <constraint firstItem="WnL-LW-b8t" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hvO-aW-Ofg"/>
+                <constraint firstItem="Y8P-wS-W1q" firstAttribute="centerX" secondItem="wSR-Ki-7RN" secondAttribute="centerX" constant="10" id="i5y-2W-F0y"/>
                 <constraint firstAttribute="bottom" secondItem="WnL-LW-b8t" secondAttribute="bottom" id="oqr-5v-rO0"/>
                 <constraint firstItem="WnL-LW-b8t" firstAttribute="top" secondItem="wSR-Ki-7RN" secondAttribute="bottom" id="s2I-dg-LXL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="IsVerifyView" destination="MfJ-Na-I9h" id="Pqe-4X-ujC"/>
                 <outlet property="aevterImageView" destination="wSR-Ki-7RN" id="kZu-Sj-TKq"/>
                 <outlet property="aevterName" destination="WnL-LW-b8t" id="vzh-Xo-vJz"/>
+                <outlet property="tipsButton" destination="Y8P-wS-W1q" id="Nep-tA-bIH"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="all_v_avatar_18x18_" width="18" height="18"/>
+    </resources>
 </document>

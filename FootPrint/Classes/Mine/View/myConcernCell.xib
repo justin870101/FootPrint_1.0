@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,14 +21,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIX-j0-Lbf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHH-wX-Gsj">
-                                <rect key="frame" x="10" y="39.5" width="310" height="0.5"/>
-                                <color key="backgroundColor" red="0.92156862745098034" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="0.5" id="bSm-Mx-5vG"/>
-                                    <constraint firstAttribute="height" constant="0.5" id="n1h-wC-h6C"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1b-hm-KKo">
                                 <rect key="frame" x="10" y="0.0" width="37.5" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -62,20 +54,17 @@
                             <constraint firstItem="m3Z-Yp-gZz" firstAttribute="leading" secondItem="PQ4-8f-Jct" secondAttribute="trailing" constant="10" id="5cd-Jg-d1u"/>
                             <constraint firstItem="q1b-hm-KKo" firstAttribute="leading" secondItem="aIX-j0-Lbf" secondAttribute="leading" constant="10" id="Ei2-gy-910"/>
                             <constraint firstItem="m3Z-Yp-gZz" firstAttribute="top" secondItem="aIX-j0-Lbf" secondAttribute="top" id="GEo-TN-LVe"/>
-                            <constraint firstItem="WHH-wX-Gsj" firstAttribute="leading" secondItem="aIX-j0-Lbf" secondAttribute="leading" constant="10" id="K6g-1F-Iik"/>
                             <constraint firstAttribute="height" constant="40" id="Ka6-iP-QFh"/>
-                            <constraint firstAttribute="bottom" secondItem="WHH-wX-Gsj" secondAttribute="bottom" id="KfX-Vp-sxb"/>
                             <constraint firstItem="PQ4-8f-Jct" firstAttribute="centerY" secondItem="aIX-j0-Lbf" secondAttribute="centerY" id="OBm-bZ-gSJ"/>
                             <constraint firstItem="BO7-oM-16e" firstAttribute="centerY" secondItem="aIX-j0-Lbf" secondAttribute="centerY" id="QJP-Jb-toT"/>
                             <constraint firstItem="q1b-hm-KKo" firstAttribute="top" secondItem="aIX-j0-Lbf" secondAttribute="top" id="Y0I-5s-3VO"/>
-                            <constraint firstAttribute="trailing" secondItem="WHH-wX-Gsj" secondAttribute="trailing" id="dMs-IP-oiz"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="kV9-lx-OC4"/>
                             <constraint firstAttribute="bottom" secondItem="m3Z-Yp-gZz" secondAttribute="bottom" id="kyw-QJ-Udg"/>
                             <constraint firstAttribute="trailing" secondItem="BO7-oM-16e" secondAttribute="trailing" constant="15" id="u0w-6x-V5c"/>
                             <constraint firstAttribute="bottom" secondItem="q1b-hm-KKo" secondAttribute="bottom" id="vWp-mn-8Pe"/>
                         </constraints>
                     </view>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Vv-xP-zU2">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Vv-xP-zU2">
                         <rect key="frame" x="0.0" y="40" width="320" height="188.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fhL-12-ucB">
@@ -85,6 +74,13 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npl-Iu-uwT" userLabel="splitLine" colorLabel="IBBuiltInLabel-Gray">
+                        <rect key="frame" x="15" y="228" width="305" height="0.5"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="6jb-VN-l89"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="7Vv-xP-zU2" secondAttribute="trailing" id="3gT-UE-n9c"/>
@@ -92,7 +88,10 @@
                     <constraint firstItem="7Vv-xP-zU2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uom-k8-59M"/>
                     <constraint firstItem="7Vv-xP-zU2" firstAttribute="top" secondItem="aIX-j0-Lbf" secondAttribute="bottom" id="fRw-tC-JuK"/>
                     <constraint firstItem="aIX-j0-Lbf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gJI-nz-SFd"/>
+                    <constraint firstAttribute="bottom" secondItem="npl-Iu-uwT" secondAttribute="bottom" id="h5Y-4h-x3y"/>
                     <constraint firstAttribute="bottom" secondItem="7Vv-xP-zU2" secondAttribute="bottom" id="hAn-gE-J4D"/>
+                    <constraint firstItem="npl-Iu-uwT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="hrx-WY-40Z"/>
+                    <constraint firstAttribute="trailing" secondItem="npl-Iu-uwT" secondAttribute="trailing" id="lr5-vd-KmS"/>
                     <constraint firstAttribute="trailing" secondItem="aIX-j0-Lbf" secondAttribute="trailing" id="mfx-Tt-1iE"/>
                 </constraints>
             </tableViewCellContentView>
@@ -102,7 +101,7 @@
                 <outlet property="mineCellTitle" destination="q1b-hm-KKo" id="ZMN-jW-Dnz"/>
                 <outlet property="selectImage" destination="PQ4-8f-Jct" id="rSW-wZ-Uqt"/>
             </connections>
-            <point key="canvasLocation" x="34" y="146.5"/>
+            <point key="canvasLocation" x="33.600000000000001" y="146.17691154422789"/>
         </tableViewCell>
     </objects>
     <resources>

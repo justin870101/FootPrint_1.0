@@ -19,4 +19,6 @@ struct myConcernModel :HandyJSON {
     var icon : String?
     var description: String?
     var type : String?
+    var tips : Bool?
+    var is_verify: Bool?
 }
